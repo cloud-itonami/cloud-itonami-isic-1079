@@ -1,0 +1,12 @@
+{:itonami.blueprint/id "cloud-itonami-1079"
+ :itonami.blueprint/name "Other Food Products n.e.c. Manufacturing Coordination"
+ :itonami.blueprint/isic-rev5 "1079"
+ :itonami.blueprint/domain :food/other-food-products-nec-manufacturing
+ :itonami.blueprint/license "AGPL-3.0-or-later"
+ :itonami.blueprint/social-impact [:food-security :food-safety :fair-labor]
+ :itonami.blueprint/governor :seasoningops-governor
+ :itonami.blueprint/robotics true
+ :itonami.blueprint/required-technologies [:robotics :identity :forms :dmn :bpmn :audit-ledger :cae]
+ :itonami.blueprint/optional-technologies []
+ :itonami.blueprint/status :public-oss
+ :itonami.blueprint/maturity :blueprint}
