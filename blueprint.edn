@@ -1,4 +1,4 @@
-{:itonami.blueprint/id "cloud-itonami-1079"
+{:itonami.blueprint/id "cloud-itonami-isic-1079"
  :itonami.blueprint/name "Other Food Products n.e.c. Manufacturing Coordination"
  :itonami.blueprint/isic-rev5 "1079"
  :itonami.blueprint/domain :food/other-food-products-nec-manufacturing
