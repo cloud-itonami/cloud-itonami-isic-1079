@@ -41,7 +41,7 @@
 
   Usage: `clojure -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [seasoningops.facts :as facts]
             [seasoningops.governor :as governor]
             [seasoningops.operation :as operation]
