@@ -1,5 +1,5 @@
 (ns seasoningops.operation-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [seasoningops.operation :as operation]
             [seasoningops.governor :as governor]))
 
