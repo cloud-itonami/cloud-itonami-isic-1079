@@ -1,5 +1,5 @@
 (ns seasoningops.registry-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [seasoningops.registry :as registry]))
 
 ;; ──────────────────────── Moisture Content (CCP1 analogue) ──────────────────────

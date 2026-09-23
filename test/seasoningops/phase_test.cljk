@@ -1,5 +1,5 @@
 (ns seasoningops.phase-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [seasoningops.phase :as phase]))
 
 ;; ──────────────────────── Phase Validity ──────────────────────
