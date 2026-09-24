@@ -41,7 +41,7 @@
 
   Usage: `kbb -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
-  (:require [kotoba.lang.text :as str]
+  (:require [kotoba.io :as kio] [kotoba.lang.text :as str]
             [seasoningops.facts :as facts]
             [seasoningops.governor :as governor]
             [seasoningops.operation :as operation]
@@ -714,8 +714,8 @@
                       {:ledger-facts (count ledger)
                        :hard-holds 0
                        :steps (count steps)})))
-    (let [f (java.io.File. ^String out)]
-      (when-let [p (.getParentFile f)] (.mkdirs p)))
+    (let [f (kio/file ^String out)]
+      (when-let [p (kio/parent-file f)] (kio/mkdirs p)))
     (spit out (render result))
     (println "wrote" out
              (str "(" (count steps) " scenario steps, "
