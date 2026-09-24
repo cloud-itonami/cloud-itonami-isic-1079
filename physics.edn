@@ -1,0 +1,29 @@
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-1079"
+ :cases
+ [{:id :stock-concentrate-to-dryer
+   :kind :pipe-flow
+   :procedure "pump feeds concentrated soup stock from the evaporator to the spray-dryer atomiser feed tank"
+   :params {:diameter-m 0.04 :length-m 25.0 :roughness-m 1.5e-6
+            :density-kg-m3 1150.0 :viscosity-pa-s 0.2 :pump-efficiency 0.5 :elevation-m 8.0}
+   :sweep {:param :q-m3s :values [2.0e-4 4.0e-4 6.0e-4 8.0e-4 1.0e-3]}
+   :quantity :pressure-drop-pa
+   :limit {:max 4.0e5 :basis "estimate: ~4 bar discharge of a sanitary positive-displacement feed pump"}
+   :boundary {:lo 5.0e-5 :hi 0.005}}
+  {:id :extraction-kettle-drain
+   :kind :tank-drain
+   :procedure "robot opens the bottom valve of the dashi extraction kettle to send the stock through the strainer"
+   :params {:tank-area-m2 3.0 :h0-m 1.5 :h-target-m 0.1 :cd 0.62 :dt-s 0.5}
+   :sweep {:param :orifice-area-m2 :values [5.0e-4 1.0e-3 2.0e-3 3.0e-3 4.0e-3]}
+   :quantity :time-to-target-s
+   :limit {:max 900.0 :basis "estimate: stock must leave the kettle within ~15 min so over-extraction does not turn it bitter"}
+   :boundary {:lo 1.0e-4 :hi 0.01}}
+  {:id :powder-bag-lift
+   :kind :manipulator
+   :procedure "arm lifts a filled seasoning-powder bag from the filler onto the pallet"
+   :params {:l1-m 0.70 :l2-m 0.60 :m1-kg 12.0 :m2-kg 8.0
+            :from [0.70 0.0] :to [0.20 0.90] :duration-s 2.5 :steps 500}
+   :sweep {:param :payload-kg :values [5.0 10.0 15.0 20.0 25.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 300.0 :basis "estimate: continuous shoulder torque of a ~25 kg payload palletizing arm"}
+   :boundary {:lo 1.0 :hi 80.0}}]}
